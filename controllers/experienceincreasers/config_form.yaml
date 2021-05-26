@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Experience Increaser
+
+# Model Form Field configuration
+form: $/sunlab/levelup/models/experienceincreaser/fields.yaml
+
+# Model Class name
+modelClass: SunLab\LevelUp\Models\ExperienceIncreaser
+
+# Default redirect location
+defaultRedirect: sunlab/levelup/experienceincreasers
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: sunlab/levelup/experienceincreasers/update/:id
+    redirectClose: sunlab/levelup/experienceincreasers
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: sunlab/levelup/experienceincreasers
+    redirectClose: sunlab/levelup/experienceincreasers
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Level
+
+# Model Form Field configuration
+form: $/sunlab/levelup/models/level/fields.yaml
+
+# Model Class name
+modelClass: SunLab\LevelUp\Models\Level
+
+# Default redirect location
+defaultRedirect: sunlab/levelup/levels
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: sunlab/levelup/levels/update/:id
+    redirectClose: sunlab/levelup/levels
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: sunlab/levelup/levels
+    redirectClose: sunlab/levelup/levels
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

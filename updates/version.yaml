@@ -1,0 +1,5 @@
+1.0.1:
+    - First version of LevelUp
+    - create_experience_increasers_table.php
+    - create_levels_table.php
+    - create_levels_users_table.php
