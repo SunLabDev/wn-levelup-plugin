@@ -1,0 +1,28 @@
+{
+    "name": "sunlab/wn-levelup-plugin",
+    "type": "winter-plugin",
+    "description": "A Level plugin for WinterCMS",
+    "homepage": "https://github.com/sunlabdev/wn-levelup-plugin",
+    "keywords": ["winter cms", "winter", "plugin", "level", "experience"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Romain 'Maz' B",
+            "email": "romainmazb@gmail.com",
+            "role": "Original Author"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/sunlabdev/wn-levelup-plugin/issues",
+        "source": "https://github.com/sunlabdev/wn-levelup-plugin"
+    },
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0",
+        "sunlab/wn-measures-plugin": "^v1.0.0",
+        "winter/wn-user-plugin": "dev-main"
+    },
+    "extra": {
+        "installer-name": "levelup"
+    }
+}
