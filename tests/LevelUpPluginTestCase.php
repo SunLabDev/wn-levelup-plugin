@@ -29,12 +29,12 @@ abstract class LevelUpPluginTestCase extends PluginTestCase
         $experienceIncreaser->save();
 
         $levelOne = new Level();
-        $levelOne->level = 1;
+        $levelOne->level = 2;
         $levelOne->experience_needed = 50;
         $levelOne->save();
 
         $levelTwo = new Level();
-        $levelTwo->level = 2;
+        $levelTwo->level = 3;
         $levelTwo->experience_needed = 150;
         $levelTwo->save();
     }

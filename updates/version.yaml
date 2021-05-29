@@ -3,3 +3,4 @@
     - create_experience_increasers_table.php
     - create_levels_table.php
     - create_levels_users_table.php
+    - seed_levels_table.php
