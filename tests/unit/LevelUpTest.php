@@ -16,7 +16,7 @@ class LevelUpTest extends LevelUpPluginTestCase
 
         $this->user->incrementMeasure('topic_posted', 3);
 
-        self::assertEquals(80, $this->user->experience);
+        self::assertEquals(60, $this->user->experience);
     }
 
     public function testUserLevelsUp()
@@ -31,6 +31,15 @@ class LevelUpTest extends LevelUpPluginTestCase
 
         // Get 150 experience points, level up to level 3
         $this->user->incrementMeasure('topic_posted', 10);
+        self::assertEquals(3, $this->user->level);
+    }
+
+    public function testUserLevelsUpMoreThanOneLevelAtOnce()
+    {
+        self::assertEquals(1, $this->user->level);
+        // Get 200 experience points, should go from level 1 to level 3
+        $this->user->incrementMeasure('topic_posted', 20);
+
         self::assertEquals(3, $this->user->level);
     }
 }
