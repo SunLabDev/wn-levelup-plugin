@@ -11,6 +11,7 @@ class CreateLevelsTable extends Migration
         Schema::create('sunlab_levelup_levels', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->unsignedInteger('level');
             $table->unsignedBigInteger('experience_needed');
         });
     }
