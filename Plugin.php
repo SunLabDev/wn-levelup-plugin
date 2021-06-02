@@ -116,17 +116,28 @@ class Plugin extends PluginBase
             ];
 
             $user->addDynamicMethod('getLastLevelReachedAttribute', function () use ($user) {
-                return $user->levels()
+                $userLevel = $user->levels()
                     ->orderByDesc('level')
                     ->first();
+
+                if ($userLevel) {
+                    return $userLevel;
+                }
+
+                $firstLevel = Level::query()->firstWhere('level', 1);
+                if ($firstLevel) {
+                    $user->levels()->syncWithoutDetaching([$firstLevel->id => ['experience' => 0]]);
+                }
+
+                return $user->levels()->first();
             });
 
             $user->addDynamicMethod('getLevelAttribute', function () use ($user) {
-                return $user->lastLevelReached->level ?? 1;
+                return $user->lastLevelReached->level;
             });
 
             $user->addDynamicMethod('getExperienceAttribute', function () use ($user) {
-                return $user->lastLevelReached->pivot->experience ?? 0;
+                return $user->lastLevelReached->pivot->experience;
             });
         });
     }
@@ -148,23 +159,10 @@ class Plugin extends PluginBase
 
             $userLevel = $model->lastLevelReached;
 
-            if ($userLevel) {
-                $userLevel->flushDuplicateCache();
-                $userLevel->pivot->increment('experience', $pointsIncrease);
-                $currentLevel = $userLevel->level;
-                $newExperience = $userLevel->pivot->experience;
-            } else {
-                $firstLevel = Level::query()->firstWhere('level', 1);
-                if ($firstLevel) {
-                    $model->levels()->syncWithoutDetaching([$firstLevel->id => ['experience' => $pointsIncrease]]);
-                    $currentLevel = $firstLevel->level;
-                    $newExperience = $pointsIncrease;
-                }
-            }
-
-            if (!isset($currentLevel)) {
-                return;
-            }
+            $userLevel->flushDuplicateCache();
+            $userLevel->pivot->increment('experience', $pointsIncrease);
+            $currentLevel = $userLevel->level;
+            $newExperience = $userLevel->pivot->experience;
 
             Event::fire('sunlab.levelup.experienceIncreased', [$model, $newExperience, $pointsIncrease]);
 
