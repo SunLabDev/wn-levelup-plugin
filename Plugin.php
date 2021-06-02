@@ -115,19 +115,18 @@ class Plugin extends PluginBase
                 'timestamps' => true
             ];
 
-            $user->addDynamicMethod('getLevelAttribute', function () use ($user) {
+            $user->addDynamicMethod('getLastLevelReachedAttribute', function () use ($user) {
                 return $user->levels()
-                        ->orderByDesc('level')
-                        ->first()
-                        ->level ?? 1;
+                    ->orderByDesc('level')
+                    ->first();
+            });
+
+            $user->addDynamicMethod('getLevelAttribute', function () use ($user) {
+                return $user->lastLevelReached->level ?? 1;
             });
 
             $user->addDynamicMethod('getExperienceAttribute', function () use ($user) {
-                return $user->levels()
-                        ->orderByDesc('level')
-                        ->first()
-                        ->pivot
-                        ->experience ?? 0;
+                return $user->lastLevelReached->pivot->experience ?? 0;
             });
         });
     }
@@ -147,10 +146,7 @@ class Plugin extends PluginBase
 
             $pointsIncrease = $experienceIncreaser->points * $amount;
 
-            $userLevel =
-                $model->levels()
-                    ->orderByDesc('level')
-                    ->first();
+            $userLevel = $model->lastLevelReached;
 
             if ($userLevel) {
                 $userLevel->flushDuplicateCache();
