@@ -1,8 +1,6 @@
-# ===================================
-#  List Column Definitions
-# ===================================
-
 columns:
-    id:
-        label: ID
-        searchable: true
+    level:
+        label: sunlab.levelup::lang.fields.level
+
+    experience_needed:
+        label: sunlab.levelup::lang.fields.experience_needed

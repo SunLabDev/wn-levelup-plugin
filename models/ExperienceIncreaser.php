@@ -28,7 +28,7 @@ class ExperienceIncreaser extends Model
      * @var array Validation rules for attributes
      */
     public $rules = [
-        'measure_name' => 'required',
+        'measure_name' => 'required|unique',
         'points' => 'required'
     ];
 

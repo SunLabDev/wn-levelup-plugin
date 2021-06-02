@@ -18,4 +18,10 @@
         data-stripe-load-indicator>
         Delete selected
     </button>
+
+    <?php if($missingLevels): ?>
+        <span class="callout callout-warning">
+            <span class="header oc-icon-warning no-subheader">Missing levels: <?= implode(', ', $missingLevels) ?></span>
+        </span>
+    <?php endif; ?>
 </div>

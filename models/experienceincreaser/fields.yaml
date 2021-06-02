@@ -1,8 +1,10 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
 fields:
-    id:
-        label: ID
-        disabled: true
+    measure_name:
+        label: sunlab.levelup::lang.fields.measure_name
+        span: auto
+
+    points:
+        label: sunlab.levelup::lang.fields.points
+        type: number
+        span: auto
+

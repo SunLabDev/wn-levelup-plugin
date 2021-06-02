@@ -28,7 +28,10 @@ class Level extends Model
     /**
      * @var array Validation rules for attributes
      */
-    public $rules = ['experience_needed' => 'required'];
+    public $rules = [
+        'level' => 'required|unique',
+        'experience_needed' => 'required',
+    ];
 
     public $timestamps = false;
 

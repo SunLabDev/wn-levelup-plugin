@@ -1,8 +1,10 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
 fields:
-    id:
-        label: ID
-        disabled: true
+    level:
+        label: sunlab.levelup::lang.fields.level
+        type: Number
+        span: left
+
+    experience_needed:
+        label: sunlab.levelup::lang.fields.experience_needed
+        type: Number
+        span: right
