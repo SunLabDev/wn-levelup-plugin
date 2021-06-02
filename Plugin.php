@@ -51,10 +51,9 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-        return []; // Remove this line to activate
-
         return [
-            'SunLab\LevelUp\Components\MyComponent' => 'myComponent',
+            \SunLab\LevelUp\Components\ExperienceGauge::class => 'experienceGauge',
+            \SunLab\LevelUp\Components\Leaderboard::class => 'leaderboard',
         ];
     }
 

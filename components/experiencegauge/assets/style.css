@@ -1,0 +1,36 @@
+.gauge-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    column-gap: 5px;
+    font-size: 18px;
+}
+
+.gauge-container .level-indicator {
+    font-size: 18px;
+}
+
+.gauge-container .gauge {
+    position: relative;
+    flex-grow: 1;
+    border: 1px solid black;
+    border-radius: 13px;
+    height: 25px;
+    text-align: center;
+    color: white;
+    font-weight: normal;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 1) ;
+    -webkit-text-shadow: 0 0 1px rgba(0, 0, 0, 1) ;
+    -moz-text-shadow: 0 0 1px rgba(0, 0, 0, 1) ;
+}
+
+.gauge-container .gauge .gauge-filling {
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: black;
+    border-radius: 13px;
+}

@@ -1,0 +1,30 @@
+.leaderboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.33%;
+    row-gap: 10px;
+}
+
+.leaderboard .card {
+    position: relative;
+    display: flex;
+    gap: 5px;
+    flex-basis: 24%;
+    padding: 5px;
+    height: 100px;
+    background: transparent;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+}
+
+.leaderboard .card .card-text {
+    flex-basis: 75%;
+}
+
+.leaderboard .card .card-image {
+    flex-basis: 25%;
+    max-height: 90%;
+    border-radius: 50%;
+}

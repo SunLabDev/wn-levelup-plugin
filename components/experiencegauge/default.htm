@@ -1,3 +1,17 @@
-<p>This is the default markup for component ExperienceGauge</p>
+<div class="gauge-container">
 
-<small>You can delete this file if you want</small>
+    <div class="level-indicator">Level {{__SELF__.userLevel.level}}</div>
+
+    <div class="gauge">
+        <div class="gauge-filling" style="width: {{__SELF__.gaugeFillingRate}}%">
+        </div>
+        <div>{{__SELF__.gaugeFillingRate|round(2)}}%</div>
+    </div>
+
+    {% if __SELF__.nextLevel %}
+    <div class="level-indicator">
+            Level {{__SELF__.nextLevel.level}}
+    </div>
+    {% endif %}
+
+</div>

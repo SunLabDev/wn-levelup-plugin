@@ -1,3 +1,23 @@
-<p>This is the default markup for component Leaderboard</p>
+{% set users = __SELF__.users %}
 
-<small>You can delete this file if you want</small>
+{% if users is not empty %}
+<div class="leaderboard">
+    {% for user in users %}
+        <div class="card">
+            {% if user.avatar is not null %}
+            <img src="{{ user.avatar.path }}" alt="" class="card-image">
+            {% else %}
+            <img src="https://eu.ui-avatars.com/api/?name={{ user.name }}" alt="" class="card-image">
+            {% endif %}
+
+            <div class="card-text">
+                <h5>{{ user.name }}</h5>
+                <p>Level: {{ user.level }}</p>
+                <p>Experience: {{ user.experience }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No user yet</p>
+{% endif %}
