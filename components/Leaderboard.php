@@ -35,8 +35,8 @@ class Leaderboard extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'Leaderboard Component',
-            'description' => 'No description provided yet...'
+            'name'        => 'Leaderboard',
+            'description' => 'sunlab.levelup::lang.components.leaderboard_description'
         ];
     }
 
@@ -45,7 +45,6 @@ class Leaderboard extends ComponentBase
         return [
             'nb-users-to-display' => [
                 'title'       => 'sunlab.levelup::lang.components.nb_users_to_display',
-                'description' => 'sunlab.levelup::lang.components.nb_users_to_display_description',
                 'default'     => '10',
                 'type'        => 'string',
                 'validationPattern' => '^[0-9]+$',
