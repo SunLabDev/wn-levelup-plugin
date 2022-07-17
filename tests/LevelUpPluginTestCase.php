@@ -1,6 +1,6 @@
 <?php namespace SunLab\LevelUp\Tests;
 
-use PluginTestCase;
+use System\Tests\Bootstrap\PluginTestCase;
 use SunLab\LevelUp\Models\ExperienceIncreaser;
 use SunLab\LevelUp\Models\Level;
 use Winter\User\Facades\Auth;
